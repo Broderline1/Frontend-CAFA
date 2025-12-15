@@ -1,0 +1,59 @@
+<div class="login-wrapper">
+  <div class="login-card">
+
+    <!-- Header -->
+    <div class="login-header">
+      <h2>Iniciar sesión</h2>
+      <p>Accede a tu cuenta</p>
+    </div>
+
+    <!-- Form -->
+    <form (ngSubmit)="onSubmit()">
+
+      <!-- Email -->
+      <div class="form-group">
+        <label>Correo electrónico</label>
+        <input
+          type="email"
+          [(ngModel)]="email"
+          name="email"
+          class="form-control"
+          placeholder="usuario@correo.com"
+          [ngClass]="{ 'is-invalid': emailError }"
+        />
+        <small *ngIf="emailError" class="error-text">{{ emailError }}</small>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label>Contraseña</label>
+        <input
+          type="password"
+          [(ngModel)]="password"
+          name="password"
+          class="form-control"
+          placeholder="********"
+          [ngClass]="{ 'is-invalid': passwordError }"
+        />
+        <small *ngIf="passwordError" class="error-text">{{ passwordError }}</small>
+      </div>
+
+      <!-- Server error -->
+      <div *ngIf="serverError" class="server-error">
+        {{ serverError }}
+      </div>
+
+      <!-- Button -->
+      <button type="submit" class="btn-login">
+        Entrar
+      </button>
+
+      <!-- Footer -->
+      <div class="login-footer">
+        <span>¿No tienes cuenta?</span>
+        <button type="button" (click)="goToRegister()">Crear cuenta</button>
+      </div>
+
+    </form>
+  </div>
+</div>

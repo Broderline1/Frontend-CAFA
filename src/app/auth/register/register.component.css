@@ -1,0 +1,20 @@
+.binary-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  background: #000;
+}
+
+.input-error {
+  border: 2px solid #ff4444 !important;
+  box-shadow: 0 0 8px rgba(255, 68, 68, 0.6);
+}
+
+.error-text {
+  color: #ff6666;
+  font-size: 0.78rem;
+  margin-top: 4px;
+}
