@@ -58,9 +58,12 @@ export class EncryptComponent implements AfterViewInit {
   }
 
   draw() {
-    this.ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
+    // Fondo blanco con transparencia para efecto de desvanecimiento
+    this.ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
     this.ctx.fillRect(0, 0, this.width, this.height);
-    this.ctx.fillStyle = '#00FF00';
+    
+    // Color azul/púrpura para los números
+    this.ctx.fillStyle = '#667eea';
     this.ctx.font = `${this.fontSize}px monospace`;
 
     for (let i = 0; i < this.columns.length; i++) {

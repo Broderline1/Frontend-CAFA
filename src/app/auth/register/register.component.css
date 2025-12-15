@@ -1,20 +1,133 @@
-.binary-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 0;
-  background: #000;
+.register-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e0e7ff, #f8fafc);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-.input-error {
-  border: 2px solid #ff4444 !important;
-  box-shadow: 0 0 8px rgba(255, 68, 68, 0.6);
+.register-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 420px;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.register-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.register-header h2 {
+  margin: 0;
+  color: #1e293b;
+}
+
+.register-header p {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 0.3rem;
+  color: #334155;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.6rem 0.7rem;
+  border-radius: 6px;
+  border: 1px solid #cbd5f5;
+  font-size: 0.9rem;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.is-invalid {
+  border-color: #dc2626;
 }
 
 .error-text {
-  color: #ff6666;
-  font-size: 0.78rem;
-  margin-top: 4px;
+  color: #dc2626;
+  font-size: 0.75rem;
+}
+
+.password-strength {
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
+  color: #dc2626;
+}
+
+.password-strength strong,
+.password-strength.strong {
+  color: #16a34a;
+}
+
+.password-strength pre {
+  margin: 0;
+  font-family: inherit;
+}
+
+.success-box {
+  background: #dcfce7;
+  color: #166534;
+  padding: 0.6rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.server-error {
+  background: #fee2e2;
+  color: #991b1b;
+  padding: 0.6rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.btn-register {
+  width: 100%;
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.65rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-register:hover {
+  background: #1d4ed8;
+}
+
+.register-footer {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #475569;
+}
+
+.register-footer button {
+  background: none;
+  border: none;
+  color: #2563eb;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 0.3rem;
 }

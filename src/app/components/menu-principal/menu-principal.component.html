@@ -1,195 +1,168 @@
-<div>
-  <!-- Canvas animado de fondo -->
-  <canvas #binaryCanvas class="binary-canvas"></canvas>
+<div class="app-root">
 
-  <!-- Contenido principal -->
-  <div class="min-vh-100 d-flex flex-column position-relative" style="z-index: 1;">
-    <!-- Header/Navbar -->
-    <nav class="navbar shadow-sm" style="background-color: rgba(10, 25, 10, 0.95); border-bottom: 2px solid #0FFF50;">
-      <div class="container-fluid">
-        <a class="navbar-brand d-flex align-items-center" href="#" style="color: #0FFF50;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="me-2" viewBox="0 0 16 16">
-            <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"/>
-          </svg>
-          <span class="fw-bold">SISTEMA SEGURO</span>
-        </a>
-        <button (click)="logout()" class="btn btn-sm" style="background-color: rgba(10, 25, 10, 0.8); color: #0FFF50; border: 1px solid #0FFF50;">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="me-1" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
-            <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
-          </svg>
-          Cerrar Sesión
-        </button>
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"/>
+        </svg>
       </div>
-    </nav>
+      <strong>Sistema de seguridad</strong>
+    </div>
+    <button class="btn-logout" (click)="logout()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="me-1" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+        <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+      </svg>
+      Salir
+    </button>
+  </header>
 
-    <!-- Main Content -->
-    <div class="container flex-grow-1 d-flex align-items-center py-5">
-      <div class="row w-100 justify-content-center">
-        <div class="col-12 col-lg-10 col-xl-9">
-          
-          <!-- Title Section -->
-          <div class="text-center mb-5">
-            <div class="mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="#0FFF50" viewBox="0 0 16 16">
-                <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"/>
-                <path d="M9.5 6.5a1.5 1.5 0 0 1-1 1.415l.385 1.99a.5.5 0 0 1-.491.595h-.788a.5.5 0 0 1-.49-.595l.384-1.99a1.5 1.5 0 1 1 2-1.415z"/>
-              </svg>
-            </div>
-            <h1 class="display-4 fw-bold mb-3" style="color: #0FFF50; text-shadow: 0 0 20px rgba(15, 255, 80, 0.5);">
-              CENTRO DE CONTROL
-            </h1>
-            <p class="lead" style="color: #5FFF9F;">
-              Sistema de Encriptación y Desencriptación de Datos
-            </p>
-          </div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+      </svg>
+    </div>
+    <h1>Centro de Operaciones</h1>
+    <p>Protección, acceso y control de información en un solo lugar</p>
+  </section>
 
-          <!-- Action Cards -->
-          <div class="row g-4 mb-4">
-            <!-- Encrypt Card -->
-            <div class="col-md-6">
-              <div class="card h-100 shadow-lg" style="background-color: rgba(10, 25, 10, 0.95); border: 2px solid #0FFF50; transition: all 0.3s;">
-                <div class="card-body p-4 d-flex flex-column">
-                  <div class="text-center mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#0FFF50" class="mb-3" viewBox="0 0 16 16">
-                      <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
-                    </svg>
-                    <h3 class="fw-bold mb-2" style="color: #0FFF50;">ENCRIPTAR</h3>
-                    <p class="mb-0" style="color: #5FFF9F;">Protege tu información con cifrado de alta seguridad</p>
-                  </div>
-                  
-                  <ul class="list-unstyled mb-4 flex-grow-1" style="color: #5FFF9F;">
-                    <li class="mb-2">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0FFF50" class="me-2" viewBox="0 0 16 16">
-                        <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
-                      </svg>
-                      Algoritmo: AES-256
-                    </li>
-                    <li class="mb-2">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0FFF50" class="me-2" viewBox="0 0 16 16">
-                        <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
-                      </svg>
-                      Cifrado local en tu dispositivo
-                    </li>
-                    <li class="mb-2">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0FFF50" class="me-2" viewBox="0 0 16 16">
-                        <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
-                      </svg>
-                      Protección con clave personalizada
-                    </li>
-                  </ul>
+  <!-- GRID -->
+  <main class="grid">
 
-                  <button class="btn btn-lg fw-bold py-3 w-100" routerLink="/encrypt" style="background-color: #0FFF50; color: #001a00; border: none; box-shadow: 0 0 20px rgba(15, 255, 80, 0.5);">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="me-2" viewBox="0 0 16 16">
-                      <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
-                    </svg>
-                    ENCRIPTAR DATOS
-                  </button>
-                </div>
-              </div>
-            </div>
+    <article class="card encrypt-card">
+      <div class="card-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+        </svg>
+      </div>
+      <header>
+        <h3>Cifrado</h3>
+        <span class="badge active">Activo</span>
+      </header>
+      <p>Convierte datos en texto protegido mediante clave.</p>
+      <ul class="features">
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+          </svg>
+          Proceso local
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+          </svg>
+          Clave personalizada
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+          </svg>
+          Alta seguridad
+        </li>
+      </ul>
+      <button routerLink="/encrypt" class="btn-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="me-1" viewBox="0 0 16 16">
+          <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+        </svg>
+        Proteger Datos
+      </button>
+    </article>
 
-            <!-- Decrypt Card -->
-            <div class="col-md-6">
-              <div class="card h-100 shadow-lg" style="background-color: rgba(10, 25, 10, 0.95); border: 2px solid #0FFF50; transition: all 0.3s;">
-                <div class="card-body p-4 d-flex flex-column">
-                  <div class="text-center mb-4">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="#0FFF50" class="mb-3" viewBox="0 0 16 16">
-                      <path d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2z"/>
-                    </svg>
-                    <h3 class="fw-bold mb-2" style="color: #0FFF50;">DESENCRIPTAR</h3>
-                    <p class="mb-0" style="color: #5FFF9F;">Recupera tu información cifrada de forma segura</p>
-                  </div>
-                  
-                  <ul class="list-unstyled mb-4 flex-grow-1" style="color: #5FFF9F;">
-                    <li class="mb-2">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0FFF50" class="me-2" viewBox="0 0 16 16">
-                        <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
-                      </svg>
-                      Detección automática de algoritmo
-                    </li>
-                    <li class="mb-2">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0FFF50" class="me-2" viewBox="0 0 16 16">
-                        <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
-                      </svg>
-                      Recuperación rápida y segura
-                    </li>
-                    <li class="mb-2">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0FFF50" class="me-2" viewBox="0 0 16 16">
-                        <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
-                      </svg>
-                      Desencriptado con clave personalizada
-                    </li>
-                  </ul>
+    <article class="card decrypt-card">
+      <div class="card-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2z"/>
+        </svg>
+      </div>
+      <header>
+        <h3>Descifrado</h3>
+        <span class="badge warn">Seguro</span>
+      </header>
+      <p>Recupera información protegida previamente.</p>
+      <ul class="features">
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+          </svg>
+          Validación de clave
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+          </svg>
+          Proceso confiable
+        </li>
+        <li>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+          </svg>
+          Compatibilidad total
+        </li>
+      </ul>
+      <button routerLink="/decrypt" class="btn-outline">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="me-1" viewBox="0 0 16 16">
+          <path d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2z"/>
+        </svg>
+        Recuperar Datos
+      </button>
+    </article>
 
-                  <button class="btn btn-lg fw-bold py-3 w-100" routerLink="/decrypt" style="background-color: #0FFF50; color: #001a00; border: none; box-shadow: 0 0 20px rgba(15, 255, 80, 0.5);">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="me-2" viewBox="0 0 16 16">
-                      <path d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2z"/>
-                    </svg>
-                    DESENCRIPTAR DATOS
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Security Info -->
-          <div class="card shadow" style="background-color: rgba(10, 25, 10, 0.95); border: 2px solid #0FFF50;">
-            <div class="card-body p-4">
-              <div class="d-flex align-items-start">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#0FFF50" class="me-3 flex-shrink-0" viewBox="0 0 16 16">
-                  <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
-                </svg>
-                <div>
-                  <h5 class="fw-bold mb-3" style="color: #0FFF50;">Información de Seguridad</h5>
-                  <p class="mb-2" style="color: #5FFF9F;">
-                    <strong>• Privacidad Total:</strong> Todo el procesamiento se realiza localmente en tu navegador. Ningún dato se envía a servidores externos.
-                  </p>
-                  <p class="mb-2" style="color: #5FFF9F;">
-                    <strong>• Claves Seguras:</strong> Utiliza claves fuertes con al menos 12 caracteres, combinando letras, números y símbolos.
-                  </p>
-                  <p class="mb-0" style="color: #5FFF9F;">
-                    <strong>• Respaldo Importante:</strong> Guarda tus claves de encriptación en un lugar seguro. Sin la clave correcta, no podrás recuperar tus datos.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
+    <article class="card status-card">
+      <div class="card-icon small">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+          <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+        </svg>
+      </div>
+      <header>
+        <h3>Estado del Sistema</h3>
+      </header>
+      <div class="stats">
+        <div class="stat-item">
+          <span class="stat-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
+            </svg>
+          </span>
+          <strong>Local</strong>
+          <span>Procesamiento</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+            </svg>
+          </span>
+          <strong>OK</strong>
+          <span>Integridad</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z"/>
+            </svg>
+          </span>
+          <strong>100%</strong>
+          <span>Privacidad</span>
         </div>
       </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="py-3 text-center" style="background-color: rgba(10, 25, 10, 0.95); border-top: 1px solid #0FFF50;">
-      <small style="color: #5FFF9F;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="me-1" viewBox="0 0 16 16">
+      <div class="alert-info">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
           <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
         </svg>
-        Sistema de Ciberseguridad © 2025 - Todos los derechos reservados
-      </small>
-    </footer>
-  </div>
+        <p>Sin la clave correcta no es posible recuperar datos.</p>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 Secure Lab · Uso académico</p>
+  </footer>
+
 </div>
-
-<style>
-.binary-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 0;
-  background: #000;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 30px rgba(15, 255, 80, 0.4) !important;
-}
-
-.btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 30px rgba(15, 255, 80, 0.7) !important;
-}
-</style>
